@@ -23,5 +23,13 @@ namespace EJ_02
             get { return this.iCajaAhorro; }
             set { this.iCajaAhorro = value; }
         }
+
+        public Cuentas(Cliente pCliente)
+        {
+            this.iCliente = pCliente;
+            this.iCuentaCorriente.Saldo = 0;
+            this.iCajaAhorro.Saldo = 0;
+
+        }
     }
 }

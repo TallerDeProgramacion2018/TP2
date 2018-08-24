@@ -12,10 +12,11 @@ namespace EJ_02
         private string iNombre;
         private TipoDNI iTipoDNI;
 
-        public Cliente(int pDNI, string pNombre)
+        public Cliente(int pDNI, string pNombre, TipoDNI ptipoDNI)
         {
             this.iDNI = pDNI;
             this.iNombre = pNombre;
+            this.iTipoDNI = ptipoDNI;
         }
 
         public int DNI
@@ -35,5 +36,6 @@ namespace EJ_02
             get { return this.iTipoDNI; }
             set { this.iTipoDNI = value; }
         }
+
     }
 }

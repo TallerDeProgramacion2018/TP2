@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="ControladorFachada.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Cuentas.cs" />
     <Compile Include="Program.cs" />

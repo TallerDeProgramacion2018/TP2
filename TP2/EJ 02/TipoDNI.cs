@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ_02
 {
-    class TipoDNI
+    enum TipoDNI
     {
         DNI,CUIT,CUIL,LE,LC
     }
