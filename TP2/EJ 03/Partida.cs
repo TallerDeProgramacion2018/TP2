@@ -16,6 +16,7 @@ namespace EJ_03
         private int iFallos = 0;
         private string iPalabra;
         private List<char> iListaIntentos;
+        private char[] iArregloJuego;
 
         public Partida(string pJugador, string pPalabra)
         {
@@ -57,6 +58,17 @@ namespace EJ_03
         {
             get { return this.iPalabra; }
             set { this.iPalabra = value; }
+        }
+
+        public void InicializarArregloJuego()
+        {
+            char[] arregloJuego = new char[this.iPalabra.Length];
+            for (int i = 0; i < arregloJuego.Length; i++)
+            {
+                arregloJuego[i] = '_';
+            }
+
+            this.iArregloJuego= arregloJuego;
         }
 
     }

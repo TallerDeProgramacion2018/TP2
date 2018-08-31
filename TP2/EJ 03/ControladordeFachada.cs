@@ -8,6 +8,8 @@ namespace EJ_03
 {
     class ControladordeFachada
     {
+        Juego juego =new Juego();
+
         private Partida iPartida;
         private List<Partida> iPartidasTerminadas;
         
@@ -19,20 +21,9 @@ namespace EJ_03
             this.iPartida= new Partida(pJugador, palabra);
         }
 
-        public char [] InicializarArregloJuego(Partida pPartida)
-        { 
-            char[] arregloJuego = new char[pPartida.Palabra.Length];
-            for (int i = 0; i < arregloJuego.Length; i++)
-            {
-                arregloJuego[i] = '_';
-            }
-
-            return arregloJuego;
-        }
-
-        public bool Intento(char pLetra, char[] pArregloJuego, Partida pPartida, List<char> pListaIntentos)
+        public bool Intento(char pLetra)
         {
-            if(BuscarCoincidencia(pLetra, pArregloJuego, pPartida))
+            if(juego.BuscarCoincidencia(pLetra))
             {
                 Revelar(pLetra, pArregloJuego, pPartida);
                 return true;
