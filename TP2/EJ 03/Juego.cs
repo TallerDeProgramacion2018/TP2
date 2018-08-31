@@ -8,14 +8,15 @@ namespace EJ_03
 {
     class Juego
     {
+        private string[] iPalabrasPosibles;
         private string iPalabra;
 
-        public bool Intento( char pLetra)
+        public bool BuscarCoincidencia(char pLetra, char[] pArregloJuego, Partida pPartida)
         {
-            bool exito=false;
-            for (int i = 0; ((i < this.iPalabra.Length)&&(exito==false)); i++)
+            bool exito = false;
+            for (int i = 0; ((i < pPartida.Palabra.Length) && (exito == false)); i++)
             {
-                if (this.iPalabra[i] == pLetra)
+                if (pPartida.Palabra[i] == pLetra)
                 {
                     exito = true;
                     return true;

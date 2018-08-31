@@ -15,6 +15,7 @@ namespace EJ_03
         private int iCantidadFallosMaxima = 10;
         private int iFallos = 0;
         private string iPalabra;
+        private List<char> iListaIntentos;
 
         public Partida(string pJugador, string pPalabra)
         {
@@ -23,7 +24,7 @@ namespace EJ_03
             this.iPalabra = pPalabra;
         }
 
-        public int AsignarCantidadFallos
+        public int CantidadFallos
         {
             get { return this.iCantidadFallosMaxima; }
             set { this.iCantidadFallosMaxima = value; }
@@ -37,7 +38,7 @@ namespace EJ_03
         public int Fallo
         {
             get { return this.iFallos; }
-            set { this.iFallos += 1; }
+            set { this.iFallos = value; }
         }
 
         public bool Victoria
@@ -52,7 +53,11 @@ namespace EJ_03
             set { this.iFechaHoraFin = DateTime.Now; }
         }
 
-
+        public string Palabra
+        {
+            get { return this.iPalabra; }
+            set { this.iPalabra = value; }
+        }
 
     }
 }
