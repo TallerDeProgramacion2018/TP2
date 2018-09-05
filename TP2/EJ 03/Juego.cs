@@ -11,7 +11,8 @@ namespace EJ_03
         private string[] iPalabrasPosibles;
         private string iPalabra;
 
-        public bool BuscarCoincidencia(char pLetra, char[] pArregloJuego, Partida pPartida)
+
+        /*public bool BuscarCoincidencia(char pLetra, char[] pArregloJuego, Partida pPartida)
         {
             bool exito = false;
             for (int i = 0; ((i < pPartida.Palabra.Length) && (exito == false)); i++)
@@ -23,19 +24,18 @@ namespace EJ_03
                 }
             }
             return false;
-        }
+        }*/
 
-        public void Revelar(char pLetra, char[] pArreglo)
+        public Partida InicializarPartida(string pJugador, string[] pPalabras)
         {
-            for (int i = 0; i < this.iPalabra.Length; i++)
-			{
-                if (this.iPalabra[i] == pLetra)
-                {
-                    pArreglo[i] = pLetra;
-                }
-			}
-        }
+            Random random = new Random();
+            int numRandom = random.Next(0, 29);
+            string palabra = pPalabras[numRandom];
+            Partida partida = new Partida(pJugador, palabra);
+            partida.InicializarArregloJuego();
 
+            return partida;
+        }
 
 
     }
