@@ -10,7 +10,7 @@ namespace EJ_03
     {
         private bool iFinalizado;
         private bool iIntento;
-
+        private char[] iArregloJuego;
 
         public ResultadoIntento()
         {
@@ -26,6 +26,12 @@ namespace EJ_03
         {
             get { return this.iIntento; }
             set { this.iIntento = value; }
+        }
+
+        public char[] ArregloJuego
+        {
+            get{ return this.iArregloJuego; }
+            set { this.iArregloJuego = value; }
         }
     }
 

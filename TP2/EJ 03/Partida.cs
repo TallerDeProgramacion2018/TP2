@@ -15,7 +15,7 @@ namespace EJ_03
         private int iCantidadFallosMaxima = 10;
         private int iFallos = 0;
         private string iPalabra;
-        private List<char> iListaIntentos;
+        private List<char> iListaIntentos = new List<char>();
         private char[] iArregloJuego;
 
         public Partida(string pJugador, string pPalabra)
@@ -102,17 +102,20 @@ namespace EJ_03
                 if (iPalabra[i] == pLetra)
                 {
                     exito = true;
-                    this.Revelar(pLetra);
-                    return true;
-                }
-                else
-                {
-                    this.ListaIntentos.Add(pLetra);
-                    this.Fallo += 1;
-                    return false;
                 }
             }
-            return false;
+
+            if (exito)
+            {
+                this.Revelar(pLetra);
+                return true;
+            }
+            else
+            {
+                this.iListaIntentos.Add(pLetra);
+                this.Fallo += 1;
+                return false;
+            }
         }
 
         /*public void Finalizar ()

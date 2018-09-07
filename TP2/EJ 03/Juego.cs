@@ -8,8 +8,10 @@ namespace EJ_03
 {
     class Juego
     {
-        private string[] iPalabrasPosibles;
+        private string[] iPalabrasPosibles = { "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad" };
         private string iPalabra;
+        private Partida[] iPartidasTerminadas;
+        private Partida iPartidaActual;
 
 
         /*public bool BuscarCoincidencia(char pLetra, char[] pArregloJuego, Partida pPartida)
@@ -26,17 +28,55 @@ namespace EJ_03
             return false;
         }*/
 
-        public Partida InicializarPartida(string pJugador, string[] pPalabras)
+        public Partida PartidaActual
         {
-            Random random = new Random();
-            int numRandom = random.Next(0, 29);
-            string palabra = pPalabras[numRandom];
-            Partida partida = new Partida(pJugador, palabra);
-            partida.InicializarArregloJuego();
-
-            return partida;
+            get { return this.iPartidaActual; }
+            set { this.iPartidaActual = value; }
         }
 
+        public Partida InicializarPartida(string pJugador)
+        {
+            Random random = new Random();
+            int numRandom = random.Next(0, 30);
+            string palabra = this.iPalabrasPosibles[numRandom];
+            this.iPartidaActual = new Partida(pJugador, palabra);
+            this.iPartidaActual.InicializarArregloJuego();
 
+            return iPartidaActual;
+        }
+
+        public void OrdenarPartidas()
+        {
+            Partida t;
+            for (int a = 1; a < this.iPartidasTerminadas.Length; a++)
+                for (int b = this.iPartidasTerminadas.Length - 1; b >= a; b--)
+                {
+                    if (this.iPartidasTerminadas[b - 1].Duracion() > this.iPartidasTerminadas[b].Duracion())
+                    {
+                        t = this.iPartidasTerminadas[b - 1];
+                        this.iPartidasTerminadas[b - 1] = this.iPartidasTerminadas[b];
+                        this.iPartidasTerminadas[b] = t;
+                    }
+                }
+        }
+
+        public Partida[] MejoresCinco(Partida[] pArreglo)
+        {
+
+            Partida[] result = new Partida[5];
+
+            for (int i = 0; i < 5; i++)
+            {
+                result[i] = pArreglo[i];
+            }
+
+            return result;
+        }
+
+        public Partida[] PartidasTerminadas
+        {
+            get { return this.iPartidasTerminadas; }
+            set { this.iPartidasTerminadas = value; }
+        }
     }
 }

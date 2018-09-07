@@ -10,15 +10,29 @@ namespace EJ_03
     {
         Juego juego = new Juego();
 
-        private Partida iPartida;
-        private List<Partida> iPartidasTerminadas;
+
+        public char[] InicializarPartida(string pJugador)
+        {
+            juego.InicializarPartida(pJugador);
+            return juego.PartidaActual.ArregloJuego;
+        }
 
         public ResultadoIntento Intento(char pLetra)
         {
-            ResultadoIntento resultado = new ResultadoIntento;
-            resultado.Intento = iPartida.BuscarCoincidencia(pLetra);
-            resultado.Finalizado=iPartida.Controlar();
+            ResultadoIntento resultado = new ResultadoIntento();
+            resultado.Intento = juego.PartidaActual.BuscarCoincidencia(pLetra);
+            resultado.Finalizado = juego.PartidaActual.Controlar();
+            resultado.ArregloJuego = juego.PartidaActual.ArregloJuego;
             return resultado;
+        }
+
+        public Partida[] ListarMejores()
+        {
+            juego.OrdenarPartidas();
+            Partida[] result = new Partida[5];
+            result = juego.MejoresCinco(juego.PartidasTerminadas);
+            return result;
+
         }
     }
 }
