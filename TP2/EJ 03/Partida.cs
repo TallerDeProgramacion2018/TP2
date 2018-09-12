@@ -25,6 +25,12 @@ namespace EJ_03
             this.iPalabra = pPalabra;
         }
 
+        public string NombreJugador
+        {
+            get {return this.iJugador; }
+            set { this.iJugador = value; }
+        }
+
         public int CantidadFallos
         {
             get { return this.iCantidadFallosMaxima; }
@@ -52,6 +58,12 @@ namespace EJ_03
         {
             get { return this.iFechaHoraFin; }
             set { this.iFechaHoraFin = DateTime.Now; }
+        }
+
+        public DateTime FechaInicio
+        {
+            get { return this.iFechaHora; }
+            set { this.iFechaHora = DateTime.Now; }
         }
 
         public string Palabra
@@ -177,7 +189,6 @@ namespace EJ_03
             {
                 this.Finalizar(false);
                 return true;
-
             }
                 
             else

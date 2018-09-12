@@ -11,12 +11,23 @@ namespace EJ_03
         static ControladordeFachada Fachada = new ControladordeFachada();
 
         static void VentanaJugar()
+
         {
             ResultadoIntento resultado = new ResultadoIntento();
             Console.Write("Ingrese Su nombre:");
             string jugador = Console.ReadLine();
             char[] arregloJuego = Fachada.InicializarPartida(jugador);
             Console.Clear();
+
+            Console.WriteLine("Desea cambiar la cantidad de fallos?");
+            Console.WriteLine("Ingrese S para Si o N para No");
+            char respuesta = Convert.ToChar(Console.ReadLine());
+
+            if (respuesta == 's')
+            {
+                VentanaConfigurarFallos();
+            }
+
 
             while (resultado.Finalizado == false)
             {
@@ -32,10 +43,50 @@ namespace EJ_03
                 string intento = Console.ReadLine();
                 resultado = Fachada.Intento(intento[0]);
             }
+
+            if (Fachada.Finalizar())
+            {
+                Console.Clear();
+                Console.WriteLine("     ---     VICTORIA    ---");
+                Console.ReadKey();
+                Fachada.AlmacenarPartida();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("     ---     DERROTA   ---");
+                Console.ReadKey();
+            }
+
+            VentanaPrincipal();
+        }
+
+        static void VentanaConfigurarFallos()
+        {
+            Console.Write("Ingrese la cantidad de fallos maximos que desea:");
+            int cantFallos = Convert.ToInt32 (Console.ReadLine());
+
+            Fachada.ConfigurarFallos(cantFallos);
+            
+        }
+
+        static void VentanaMejores_5_Partidas()
+        {
+            Console.WriteLine("Estas son las mejores 5 partidas ganadas:");
+            Partida[] resultado = Fachada.ListarMejores();
+
+            for (int i = 0; i < resultado.Length; i++)
+            {
+                Console.WriteLine("Nombre: " + resultado[i].NombreJugador);
+                //Console.WriteLine("Duracion : " + Convert.ToString(resultado[i].FechaFin - resultado[i].FechaInicio)));
+                Console.WriteLine();
+            }
         }
 
         static void VentanaPrincipal()
         {
+            //VentanaNombre();
+        
             Console.Clear();
             Console.WriteLine(" - AHORCADO -");
             Console.WriteLine();
@@ -53,14 +104,15 @@ namespace EJ_03
                         break;
                     }
 
-                /*case ConsoleKey.D2:
+                case ConsoleKey.D2:
                     {
-                        VentanaMejores();
+                        VentanaConfigurarFallos();
                         break;
-                    }*/
+                    }
 
-                case ConsoleKey.D0:
+                case ConsoleKey.D3:
                     {
+                        VentanaMejores_5_Partidas();
                         break;
                     }
             }

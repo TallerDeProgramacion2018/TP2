@@ -10,7 +10,7 @@ namespace EJ_03
     {
         private string[] iPalabrasPosibles = { "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad", "hola", "alumno", "facultad" };
         private string iPalabra;
-        private Partida[] iPartidasTerminadas;
+        private Partida[] iPartidasTerminadas = new Partida[100];
         private Partida iPartidaActual;
 
 
@@ -77,6 +77,11 @@ namespace EJ_03
         {
             get { return this.iPartidasTerminadas; }
             set { this.iPartidasTerminadas = value; }
+        }
+
+        public void GuardarPartida()
+        {
+            this.iPartidasTerminadas[this.iPartidasTerminadas.Length - 3] = this.PartidaActual;
         }
     }
 }

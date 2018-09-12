@@ -34,5 +34,26 @@ namespace EJ_03
             return result;
 
         }
+
+        public void ConfigurarFallos (int pFallos)
+        {
+            juego.PartidaActual.CantidadFallos = pFallos;
+        }
+
+        public bool Finalizar ()
+        {
+            if (juego.PartidaActual.ControlFallos())
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+        public void AlmacenarPartida()
+        {
+            juego.GuardarPartida();
+        }
+
     }
 }
