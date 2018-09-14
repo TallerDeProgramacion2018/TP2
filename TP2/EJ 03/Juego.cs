@@ -83,5 +83,16 @@ namespace EJ_03
         {
             this.iPartidasTerminadas[this.iPartidasTerminadas.Length - 3] = this.PartidaActual;
         }
+
+        public void Precarga()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                this.PartidasTerminadas[i] = new Partida("Kevin","hola");
+                this.PartidasTerminadas[i].FechaInicio = new DateTime (2018, 2, 22, 5, 25, 0);
+                this.PartidasTerminadas[i].FechaFin = new DateTime(2018, 2, 22, 5, 50, 0);
+                this.PartidasTerminadas[i].Victoria = true;
+            }
+        }
     }
 }

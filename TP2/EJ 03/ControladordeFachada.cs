@@ -10,11 +10,12 @@ namespace EJ_03
     {
         Juego juego = new Juego();
 
-
         public char[] InicializarPartida(string pJugador)
         {
             juego.InicializarPartida(pJugador);
+            juego.Precarga();
             return juego.PartidaActual.ArregloJuego;
+
         }
 
         public ResultadoIntento Intento(char pLetra)
@@ -28,7 +29,7 @@ namespace EJ_03
 
         public Partida[] ListarMejores()
         {
-            juego.OrdenarPartidas();
+            //juego.OrdenarPartidas();
             Partida[] result = new Partida[5];
             result = juego.MejoresCinco(juego.PartidasTerminadas);
             return result;

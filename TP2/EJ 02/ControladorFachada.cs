@@ -9,30 +9,24 @@ namespace EJ_02
     class ControladorFachada
     {
                 
-        Cuentas cuenta;
-
-        public ControladorFachada()
-        {
-            Cliente cliente = new Cliente(123456,"Kevin",0);
-            this.cuenta = new Cuentas(cliente);
-        }
-
+        Cuentas cuentas = new Cuentas();
+        
         public double ObtenerSaldoCajaDeAhorro ()
         {
-            return  cuenta.CajaAhorro.Saldo;
+            return  cuentas.CajaAhorro.Saldo;
         }
 
         public double ObtenerSaldoCuentaCorriente()
         {
-            return cuenta.CuentaCorriente.Saldo;
+            return cuentas.CuentaCorriente.Saldo;
         }
 
-        public bool TransferirCajaDeAhorro(Cuenta pCuentaCorriente, Cuenta pCajaAhorro, double pMonto)
+        public bool TransferirCajaDeAhorro(double pMonto)
         {
 
-            if (pCuentaCorriente.DebitarSaldo(pMonto) == true)
+            if (cuentas.CuentaCorriente.DebitarSaldo(pMonto) == true)
             {
-                pCajaAhorro.AcreditarSaldo(pMonto);
+                cuentas.CajaAhorro.AcreditarSaldo(pMonto);
                 return true;
             }
             else
@@ -41,12 +35,12 @@ namespace EJ_02
             }
         }
 
-        public bool TransferirCuentaCorriente (Cuenta pCuentaCorriente, Cuenta pCajaAhorro, double pMonto)
+        public bool TransferirCuentaCorriente (double pMonto)
         { 
 
-            if (pCajaAhorro.DebitarSaldo(pMonto) == true)
+            if (cuentas.CajaAhorro.DebitarSaldo(pMonto) == true)
             {
-                pCuentaCorriente.AcreditarSaldo(pMonto);
+                cuentas.CuentaCorriente.AcreditarSaldo(pMonto);
                 return true;
             }
             else

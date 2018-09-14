@@ -24,12 +24,11 @@ namespace EJ_02
             set { this.iCajaAhorro = value; }
         }
 
-        public Cuentas(Cliente pCliente)
+        public Cuentas()
         {
-            this.iCliente = pCliente;
-            this.iCuentaCorriente.Saldo = 0;
-            this.iCajaAhorro.Saldo = 0;
-
+            this.iCliente = new Cliente(95583134,"Kevin");
+            this.iCuentaCorriente = new Cuenta(500,350);
+            this.iCajaAhorro = new Cuenta(300,100);
         }
     }
 }

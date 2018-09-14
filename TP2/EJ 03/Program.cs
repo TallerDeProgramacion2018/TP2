@@ -78,9 +78,11 @@ namespace EJ_03
             for (int i = 0; i < resultado.Length; i++)
             {
                 Console.WriteLine("Nombre: " + resultado[i].NombreJugador);
-                //Console.WriteLine("Duracion : " + Convert.ToString(resultado[i].FechaFin - resultado[i].FechaInicio)));
+                //Console.WriteLine("Duracion : " + (resultado[i].FechaFin - resultado[i].FechaInicio));
+                Console.WriteLine(resultado[i].Duracion());
                 Console.WriteLine();
             }
+            Console.ReadLine();
         }
 
         static void VentanaPrincipal()

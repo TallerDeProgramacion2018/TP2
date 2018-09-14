@@ -37,7 +37,8 @@ namespace EJ_02
 
         public double AcreditarSaldo(double pSaldo)
         {
-            return iSaldo + pSaldo;
+            this.iSaldo += pSaldo;
+            return this.iSaldo;
         }
 
         public bool DebitarSaldo(double pSaldo)

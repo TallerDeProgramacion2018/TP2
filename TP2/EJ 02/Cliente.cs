@@ -10,13 +10,13 @@ namespace EJ_02
     {
         private int iDNI;
         private string iNombre;
-        private TipoDNI iTipoDNI;
+        private string iTipoDocumento;
 
-        public Cliente(int pDNI, string pNombre, TipoDNI ptipoDNI)
+        public Cliente(int pDNI, string pNombre)
         {
             this.iDNI = pDNI;
             this.iNombre = pNombre;
-            this.iTipoDNI = ptipoDNI;
+            this.iTipoDocumento = "DNI";
         }
 
         public int DNI
@@ -31,10 +31,10 @@ namespace EJ_02
             set { this.iNombre = value; }
         }
 
-        public TipoDNI tipoDNI
+        public string TipoDocumento
         {
-            get { return this.iTipoDNI; }
-            set { this.iTipoDNI = value; }
+            get { return this.iTipoDocumento; }
+            set { this.iTipoDocumento = value; }
         }
 
     }
