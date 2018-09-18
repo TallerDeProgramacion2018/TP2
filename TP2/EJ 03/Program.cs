@@ -13,6 +13,7 @@ namespace EJ_03
         static void VentanaJugar()
 
         {
+            Console.Clear();
             ResultadoIntento resultado = new ResultadoIntento();
             Console.Write("Ingrese Su nombre:");
             string jugador = Console.ReadLine();
@@ -63,6 +64,7 @@ namespace EJ_03
 
         static void VentanaConfigurarFallos()
         {
+            Console.Clear();
             Console.Write("Ingrese la cantidad de fallos maximos que desea:");
             int cantFallos = Convert.ToInt32 (Console.ReadLine());
 
@@ -78,23 +80,21 @@ namespace EJ_03
             for (int i = 0; i < resultado.Length; i++)
             {
                 Console.WriteLine("Nombre: " + resultado[i].NombreJugador);
-                //Console.WriteLine("Duracion : " + (resultado[i].FechaFin - resultado[i].FechaInicio));
                 Console.WriteLine(resultado[i].Duracion());
                 Console.WriteLine();
             }
             Console.ReadLine();
+
+            VentanaPrincipal();
         }
 
         static void VentanaPrincipal()
         {
-            //VentanaNombre();
-        
             Console.Clear();
             Console.WriteLine(" - AHORCADO -");
             Console.WriteLine();
             Console.WriteLine("1 - Jugar");
-            Console.WriteLine("2 - Configurar cantidad de fallos");
-            Console.WriteLine("3 - Mejores Partidas");
+            Console.WriteLine("2 - Mejores Partidas");
             Console.WriteLine("0 - Salir");
 
             var entrada = Console.ReadKey();
@@ -107,12 +107,6 @@ namespace EJ_03
                     }
 
                 case ConsoleKey.D2:
-                    {
-                        VentanaConfigurarFallos();
-                        break;
-                    }
-
-                case ConsoleKey.D3:
                     {
                         VentanaMejores_5_Partidas();
                         break;

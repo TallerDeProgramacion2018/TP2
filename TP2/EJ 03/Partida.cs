@@ -39,7 +39,8 @@ namespace EJ_03
 
         public TimeSpan Duracion()
         {
-            return iFechaHoraFin.Subtract(iFechaHora);
+            // return iFechaHoraFin.Subtract(iFechaHora);
+            return this.iFechaHoraFin - this.iFechaHora;
         }
 
         public int Fallo
@@ -57,7 +58,7 @@ namespace EJ_03
         public DateTime FechaFin
         {
             get { return this.iFechaHoraFin; }
-            set { this.iFechaHoraFin = DateTime.Now; }
+            set { this.iFechaHoraFin = value; }
         }
 
         public DateTime FechaInicio
@@ -129,23 +130,6 @@ namespace EJ_03
                 return false;
             }
         }
-
-        /*public void Finalizar ()
-        {
-            if (ControlFallos())
-            {
-                this.iFechaHoraFin = DateTime.Now;
-            }
-            else
-            {
-                if (this.ControlPalabra ())
-                {
-                    this.iVictoria = this.Victoria;
-                    this.iFechaHoraFin = DateTime.Now;
-
-                }
-            }
-        }*/
 
         public void Finalizar(bool pResultado)
         {
