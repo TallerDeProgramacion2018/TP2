@@ -35,14 +35,14 @@ namespace EJ_02
             set { this.iAcuerdo = value; }
         }
 
-        public double AcreditarSaldo(double pSaldo)
-        {
+        public double AcreditarSaldo(double pSaldo)             //Suma un monto que se pasa como parametro al saldo actual de 
+        {                                                       //la cuenta
             this.iSaldo += pSaldo;
             return this.iSaldo;
         }
 
-        public bool DebitarSaldo(double pSaldo)
-        {
+        public bool DebitarSaldo(double pSaldo)                 //Resta un monto que se para como paramentro al saldo actual de
+        {                                                       //la cuenta
             if (this.iSaldo >= pSaldo)
             {
                 this.iSaldo -= pSaldo;

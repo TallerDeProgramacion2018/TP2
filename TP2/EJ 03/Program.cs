@@ -13,9 +13,9 @@ namespace EJ_03
         static void VentanaJugar()
 
         {
-            Console.Clear();
-            ResultadoIntento resultado = new ResultadoIntento();
-            Console.Write("Ingrese Su nombre:");
+            Console.Clear();                                                            //Se definieron ventanas para luego
+            ResultadoIntento resultado = new ResultadoIntento();                        //llamarlas en el main
+            Console.Write("Ingrese Su nombre: ");                                       
             string jugador = Console.ReadLine();
             char[] arregloJuego = Fachada.InicializarPartida(jugador);
             Console.Clear();
@@ -33,13 +33,17 @@ namespace EJ_03
             while (resultado.Finalizado == false)
             {
                 Console.Clear();
-                Console.WriteLine("INGRESE SU INTENTO:");
+                Console.WriteLine("INGRESE SU INTENTO: ");
                 Console.WriteLine();
                 Console.WriteLine("        ");
+                Console.Write("     ");
                 for (int i = 0; i < arregloJuego.Length; i++)
                 {
                     Console.Write($"{arregloJuego[i]} ");
+                    
                 }
+                Console.WriteLine($"     Las vidas restantes son: {Fachada.ObtenerFallos()}");
+                Console.WriteLine();
 
                 string intento = Console.ReadLine();
                 resultado = Fachada.Intento(intento[0]);
@@ -49,6 +53,12 @@ namespace EJ_03
             {
                 Console.Clear();
                 Console.WriteLine("     ---     VICTORIA    ---");
+                Console.WriteLine();
+                Console.Write("     ");
+                for (int i = 0; i < arregloJuego.Length; i++)
+                {
+                    Console.Write($"{arregloJuego[i]} ");
+                }
                 Console.ReadKey();
                 Fachada.AlmacenarPartida();
             }
@@ -65,7 +75,7 @@ namespace EJ_03
         static void VentanaConfigurarFallos()
         {
             Console.Clear();
-            Console.Write("Ingrese la cantidad de fallos maximos que desea:");
+            Console.Write("Ingrese la cantidad de fallos maximos que desea: ");
             int cantFallos = Convert.ToInt32 (Console.ReadLine());
 
             Fachada.ConfigurarFallos(cantFallos);
@@ -74,13 +84,21 @@ namespace EJ_03
 
         static void VentanaMejores_5_Partidas()
         {
-            Console.WriteLine("Estas son las mejores 5 partidas ganadas:");
+            Console.Clear();
+            Console.WriteLine("Estas son las mejores 5 partidas ganadas: ");
+            Console.WriteLine();
             Partida[] resultado = Fachada.ListarMejores();
 
             for (int i = 0; i < resultado.Length; i++)
             {
                 Console.WriteLine("Nombre: " + resultado[i].NombreJugador);
-                Console.WriteLine(resultado[i].Duracion());
+                Console.WriteLine();
+                //Console.WriteLine($"Duracion: {resultado[i].Duracion()}");
+                Console.WriteLine("Duracion:");
+                Console.Write($"{resultado[i].Duracion().Hours}:");
+                Console.Write($"{resultado[i].Duracion().Minutes}:");
+                Console.Write($"{resultado[i].Duracion().Seconds:0}");
+                Console.WriteLine();
                 Console.WriteLine();
             }
             Console.ReadLine();
@@ -90,8 +108,9 @@ namespace EJ_03
 
         static void VentanaPrincipal()
         {
+            Fachada.Precargar();
             Console.Clear();
-            Console.WriteLine(" - AHORCADO -");
+            Console.WriteLine(" --     AHORCADO     --");
             Console.WriteLine();
             Console.WriteLine("1 - Jugar");
             Console.WriteLine("2 - Mejores Partidas");

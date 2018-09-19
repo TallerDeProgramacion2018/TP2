@@ -26,8 +26,8 @@ namespace EJ_02
 
         public Cuentas()
         {
-            this.iCliente = new Cliente(95583134,"Kevin");
-            this.iCuentaCorriente = new Cuenta(500,350);
+            this.iCliente = new Cliente(95583134,"Kevin");          //Se considera un cliente por defecto y cuentas con saldo incial
+            this.iCuentaCorriente = new Cuenta(500,350);            //para poder hacer operaciones
             this.iCajaAhorro = new Cuenta(300,100);
         }
     }
