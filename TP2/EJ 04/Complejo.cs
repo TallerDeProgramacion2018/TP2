@@ -19,7 +19,7 @@ namespace EJ_04
         }
 
 
-        public double Real => iReal;
+        public double Real => iReal;        // Definimos las propiedades como sólo lectura para mantener la inmutabilidad.
 
 
         public double Imaginario => iImaginario;
@@ -69,7 +69,7 @@ namespace EJ_04
         }
 
 
-        public double Magnitud()
+        public double Magnitud()        // Se aplica la fórmula de magnitud de un número complejo.
         {
             double result = Math.Sqrt(Math.Pow(this.iReal, 2) + Math.Pow(this.iImaginario, 2));
             return result;
@@ -110,7 +110,7 @@ namespace EJ_04
         }
 
 
-        public Complejo MultiplicarPor(Complejo pOtroComplejo)
+        public Complejo MultiplicarPor(Complejo pOtroComplejo)  // Ëste método aplica la fórmula de producto de números complejos.
         {
             double real = iReal * pOtroComplejo.Real - iImaginario * pOtroComplejo.Imaginario;
             double imaginario = iReal * pOtroComplejo.Imaginario + iImaginario * pOtroComplejo.Real;
@@ -118,7 +118,7 @@ namespace EJ_04
         }
 
 
-        public Complejo DividirPor(Complejo pOtroComplejo)
+        public Complejo DividirPor(Complejo pOtroComplejo)  // Este métpodo aplica la fórmula de cociente de números complejos
         {
             double real = (iReal * pOtroComplejo.Real + iImaginario * pOtroComplejo.Imaginario)/
                           (Math.Pow(pOtroComplejo.Real,2) + Math.Pow(pOtroComplejo.Imaginario,2));

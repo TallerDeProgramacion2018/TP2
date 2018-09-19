@@ -37,11 +37,13 @@ namespace EJ_01
             set { this.iPunto3 = value; }
         }
 
+        //Este método calcula el perímetro de un triángulo sumando las distancias entre ellos.
         public double Perimetro
         {
             get { return (iPunto1.CalcularDistanciaDesde(iPunto2) + iPunto1.CalcularDistanciaDesde(iPunto3) + iPunto2.CalcularDistanciaDesde(iPunto3)); }
         }
 
+        //Este método calcula el área utilizando la formula de Herón.
         public double Area
         {
             get

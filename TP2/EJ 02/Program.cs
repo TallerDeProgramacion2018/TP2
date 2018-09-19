@@ -10,6 +10,8 @@ namespace EJ_02
     {
         static ControladorFachada Fachada = new ControladorFachada();
 
+        // Definimos ventanas que luego serán llamadas en el main.
+
         static void VentanaPrincipal()
         {
             Console.Clear();
@@ -17,8 +19,8 @@ namespace EJ_02
             Console.WriteLine();
             Console.WriteLine("1: Consultar saldo de caja de ahorro.");
             Console.WriteLine("2: Consultar saldo de la cuenta corriente.");
-            Console.WriteLine("3: Transferir dinero hacia cuenta corrinte.");
-            Console.WriteLine("4: Transferir dinero hacia caja de ahorro.");
+            Console.WriteLine("3: Transferir dinero hacia caja de ahorro.");
+            Console.WriteLine("4: Transferir dinero hacia cuenta corrinte.");
             Console.WriteLine("0: Salir");
 
             string opcion = Console.ReadLine();
@@ -48,8 +50,14 @@ namespace EJ_02
                         Console.Clear();
                         Console.WriteLine("Ingrese monto a transferir: ");
                         double monto = Convert.ToDouble(Console.ReadLine());
-                        Fachada.TransferirCuentaCorriente(monto);
-                        Console.WriteLine($"Operacion completada con éxito, el nuevo saldo es {Fachada.ObtenerSaldoCuentaCorriente():0.00}");
+                        if (Fachada.TransferirCajaDeAhorro(monto))
+                        {
+                            Console.WriteLine($"Operacion completada con éxito, el nuevo saldo es {Fachada.ObtenerSaldoCajaDeAhorro():0.00}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Saldo insuficiente, la operación no se pudo completar.");
+                        }
                         Console.ReadKey();
                         VentanaPrincipal();
                         break;
@@ -60,8 +68,14 @@ namespace EJ_02
                         Console.Clear();
                         Console.WriteLine("Ingrese monto a transferir: ");
                         double monto = Convert.ToDouble(Console.ReadLine());
-                        Fachada.TransferirCajaDeAhorro(monto);
-                        Console.WriteLine($"Operacion completada con éxito, el nuevo saldo es {Fachada.ObtenerSaldoCajaDeAhorro():0.00}");
+                        if (Fachada.TransferirCuentaCorriente(monto))
+                        {
+                            Console.WriteLine($"Operacion completada con éxito, el nuevo saldo es {Fachada.ObtenerSaldoCajaDeAhorro():0.00}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Saldo insuficiente, la operación no se pudo completar.");
+                        }
                         Console.ReadKey();
                         VentanaPrincipal();
                         break;
@@ -69,7 +83,6 @@ namespace EJ_02
 
                 case "0":
                         break;
-                    
             }
         }
 

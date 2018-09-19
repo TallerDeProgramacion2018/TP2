@@ -21,7 +21,8 @@ namespace EJ_02
             return cuentas.CuentaCorriente.Saldo;
         }
 
-        public bool TransferirCajaDeAhorro(double pMonto)
+        // En estos métodos se controla si las operaciónes son posibles, y si lo son, se realiza. Devuelve un boolean según cada caso.
+        public bool TransferirCajaDeAhorro(double pMonto)       
         {
 
             if (cuentas.CuentaCorriente.DebitarSaldo(pMonto) == true)

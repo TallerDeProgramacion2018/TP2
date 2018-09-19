@@ -29,6 +29,7 @@ namespace EJ_01
             set { this.iY = value; }
         }
 
+        // Este método calcula la distancia usando la fórmula euclideana.
         public double CalcularDistanciaDesde(Punto pPunto)
         {
             return Math.Sqrt(Math.Pow(this.iX - pPunto.iX, 2) + Math.Pow(this.iY - pPunto.iY, 2));
