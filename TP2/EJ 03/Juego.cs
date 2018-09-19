@@ -9,7 +9,6 @@ namespace EJ_03
     class Juego
     {
         private string[] iPalabrasPosibles = { "hola", "alumno", "facultad", "palabra", "computadora", "pared", "estudiante", "trofeo", "pizarra", "ventana", "murcielago", "odisea", "chau", "mate", "celular", "hueso", "cerveza", "cerebro", "encefalograma", "otorrinolaringologia", "manzana", "almohadon", "led", "implacable", "ojo", "analogo", "hipotesis", "animal", "lentes", "caracter" };
-        private string iPalabra;
         List<Partida> iPartidasTerminadas = new List<Partida>();
         private Partida iPartidaActual;
 
